@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=(python3_{9..10})
 
-DESCRIPTION="A Cockpit plugin to easily manage samba and NFS file sharing."
+DESCRIPTION="A Featureful File Browser for Cockpit."
 HOMEPAGE="https://github.com/45Drives/cockpit-navigator"
 
 if [[ ${PV} == 9999* ]] ; then
