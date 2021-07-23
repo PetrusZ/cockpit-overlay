@@ -7,7 +7,7 @@ inherit meson
 
 DESCRIPTION="DBus protocol binding for libvirt native C API"
 HOMEPAGE="http://libvirt.org"
-SRC_URI="http://www.libvirt.org/sources/dbus/${P}.tar.xz"
+SRC_URI="https://gitlab.com/libvirt/libvirt-dbus/-/archive/v${PV}/${P}.tar.gz"
 
 LICENSE="LGPL-2+"
 SLOT="0"
