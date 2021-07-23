@@ -25,4 +25,5 @@ DEPEND=""
 BDEPEND=""
 RDEPEND="${DEPEND}
 	sys-apps/cockpit
+	sys-block/fio
 "
