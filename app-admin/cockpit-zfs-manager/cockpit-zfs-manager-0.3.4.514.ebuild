@@ -3,8 +3,8 @@
 
 EAPI=8
 
-DESCRIPTION="This is the Cockpit user interface for virtual machines"
-HOMEPAGE="https://github.com/optimans/cockpit-zfs-manage"
+DESCRIPTION="Cockpit ZFS Manager is an interactive ZFS on Linux admin package for Cockpit."
+HOMEPAGE="https://github.com/optimans/cockpit-zfs-manager"
 
 if [[ ${PV} == 9999* ]] ; then
 	inherit git-r3
