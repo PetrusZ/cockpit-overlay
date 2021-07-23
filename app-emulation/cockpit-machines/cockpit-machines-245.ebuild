@@ -3,6 +3,10 @@
 
 EAPI=7
 
+PYTHON_COMPAT=(python3_{9..10})
+
+inherit python-single-r1
+
 DESCRIPTION="This is the Cockpit user interface for virtual machines"
 HOMEPAGE="http://cockpit-project.org/"
 
@@ -20,6 +24,8 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 IUSE=""
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 BDEPEND="
 "
 DEPEND="
@@ -30,6 +36,7 @@ RDEPEND="${DEPEND}
 	app-emulation/libvirt-dbus
 	app-emulation/libvirt[firewalld,policykit]
 	app-emulation/virt-manager[policykit]
+	${PYTHON_DEPS}
 "
 
 S="${WORKDIR}/${PN}"
