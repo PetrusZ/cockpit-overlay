@@ -20,7 +20,7 @@ fi
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-IUSE="debug doc firewalld +networkmanager pcp selinux udisks"
+IUSE="debug doc firewalld +networkmanager pcp selinux udisks tuned"
 
 BDEPEND="
 	>=app-crypt/mit-krb5-1.11
@@ -50,6 +50,9 @@ DEPEND="
 	sys-apps/accountsservice[systemd]
 	udisks? (
 		sys-fs/udisks[lvm,systemd]
+	)
+	tuned? (
+		sys-apps/tuned
 	)
 "
 
