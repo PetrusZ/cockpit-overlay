@@ -27,5 +27,6 @@ RDEPEND="${DEPEND}
 "
 
 src_install() {
-	cp -r zfs ${IMAGE}/usr/share/cockpit
+	insinto /usr/share/cockpit
+	doins -r zfs
 }
