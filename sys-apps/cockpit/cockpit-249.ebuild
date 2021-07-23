@@ -14,13 +14,13 @@ if [[ ${PV} == 9999* ]] ; then
 	KEYWORDS=""
 	SRC_URI=""
 else
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/cockpit-project/${PN}/releases/download/${PV}/${P}.tar.xz"
 fi
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-IUSE="debug +doc firewalld +networkmanager pcp selinux udisks"
+IUSE="debug doc firewalld +networkmanager pcp selinux udisks"
 
 BDEPEND="
 	>=app-crypt/mit-krb5-1.11
@@ -51,6 +51,7 @@ DEPEND="
 	udisks? (
 		sys-fs/udisks[lvm,systemd]
 	)
+	virtual/libcrypt:=
 "
 
 RDEPEND="${DEPEND}
@@ -77,7 +78,7 @@ src_configure() {
 		"--with-cockpit-user=cockpit-ws"
 		"--with-cockpit-ws-instance-user=cockpit-wsinstance"
 		"--with-cockpit-group=cockpit-ws"
-		"--localstatedir=${ROOT}/var")
+		"--localstatedir=/var")
 	econf "${myconf[@]}"
 }
 
@@ -85,12 +86,12 @@ src_install(){
 	emake DESTDIR="${D}" install || die "emake install failed"
 
 	if ! use selinux ; then
-    	rm -rf "${D}"/usr/share/cockpit/selinux
-    	rm -rf "${D}"/usr/share/metainfo/org.cockpit-project.cockpit-selinux.metainfo.xml
-    fi
+		rm -rf "${D}"/usr/share/cockpit/selinux
+		rm -rf "${D}"/usr/share/metainfo/org.cockpit-project.cockpit-selinux.metainfo.xml
+	fi
 
-    rm -rf "${D}"/usr/share/cockpit/{packagekit,playground,sosreport}
-    rm -rf "${D}"/usr/share/metainfo/org.cockpit-project.cockpit-sosreport.metainfo.xml
+	rm -rf "${D}"/usr/share/cockpit/{packagekit,playground,sosreport}
+	rm -rf "${D}"/usr/share/metainfo/org.cockpit-project.cockpit-sosreport.metainfo.xml
 
 	ewarn "Installing experimental pam configuration file"
 	ewarn "use at your own risk"
