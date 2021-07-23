@@ -8,12 +8,12 @@ HOMEPAGE="https://github.com/optimans/cockpit-zfs-manager"
 
 if [[ ${PV} == 9999* ]] ; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/optimans/cockpit-zfs-manager"
+	EGIT_REPO_URI="${HOMEPAGE}"
 	KEYWORDS=""
 	SRC_URI=""
 else
 	KEYWORDS="~amd64"
-	SRC_URI="https://github.com/optimans/cockpit-zfs-manager/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="${HOMEPAGE}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
 LICENSE="LGPL-3"
