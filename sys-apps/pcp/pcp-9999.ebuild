@@ -58,7 +58,7 @@ src_prepare() {
 
 src_configure() {
 	local myconf=(
-		"--localstatedir=${ROOT}/var"
+		"--localstatedir=/var"
 		"--without-dstat-symlink"
 		"--without-python"
 		$(use_enable pie)
